@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from library.models import Article, Reporter
 
-from library.models import Article
 
 # Create your views here.
 
@@ -64,16 +64,16 @@ data = {
 }
 
 def index(request):
-    context = {"reporters": data["reporters"], "articles": data["articles"]}
+    context = {"reporters": Reporter.objects.all(), "articles": Article.objects.all()}
     return render(request, 'libraries/index.html', context)
     
 
 def reporters(request):
-    context = {"reporters": data["reporters"] }
+    context = {"reporters": Reporter.objects.all() }
     return render(request, 'libraries/reporters.html', context)
 
 def articles(request):
-    context = {"articles": data["articles"] }
+    context = {"articles": Article.objects.all() }
     return render(request, 'libraries/articles.html', context)
 
 def year_archive(request, year):
@@ -88,12 +88,14 @@ def month_archive(request, year , month):
 
 def article_detail(request, pk):
 
-    articles = data["articles"]
-    selectedArticle = None
+    article = Article.objects.get(id=pk)
 
-    for article in articles:
-        if article["id"] == pk:
-            selectedArticle = article
-
-    context = {"article": selectedArticle}
+    context = {"article": article }
     return render(request, 'libraries/articledetail.html', context)
+
+
+def reporter_detail(request, pk):
+    reporter = Reporter.objects.get(id=pk)
+    
+    context = {"reporter" : reporter, "articles": Article.objects.all()}
+    return render(request, "libraries/reporterdetail.html", context)
