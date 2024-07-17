@@ -1,9 +1,16 @@
 <div class="card w-100 mb-3">
+  <a href = {% url 'article_detail' 1%} style="text-decoration:none; color:black;">
     <div class="card-body">
-      <h5 class="card-title">
-        <a href = {% url 'article_detail' 1%} class="btn-dark"> Card title </a>
+      <h5 class="card-title text-primary">
+         {{article.headline}} 
       </h5> 
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Button</a>
+      <p class="card-text"> {{article.content}} </p>
+      <p class="text-primary", style="padding-left:max;"> {{article.pub_date}} </p>
+      <p class="text-primary", style="padding-left:max;"> {{article.reporter}} </p>
+
+      
+      
+
     </div>
+  </a>
   </div>

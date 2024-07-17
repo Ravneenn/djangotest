@@ -13,16 +13,9 @@
     <div class="row">
         {% include 'partials/_sidebar.html' %}
         <div class="col-9">
-            ARTICLES
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%} 
+            {% for article in articles%}
+                {% include 'libraries/partials/_card.html'%}
+            {% endfor %}
         </div>
             
 
