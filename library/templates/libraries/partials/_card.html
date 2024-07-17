@@ -1,5 +1,5 @@
 <div class="card w-100 mb-3">
-  <a href = {% url 'article_detail' 1%} style="text-decoration:none; color:black;">
+  <a href = {% url 'article_detail' article.id %} style="text-decoration:none; color:black;">
     <div class="card-body">
       <h5 class="card-title text-primary">
          {{article.headline}} 
