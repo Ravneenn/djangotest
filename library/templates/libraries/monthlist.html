@@ -8,9 +8,33 @@
 
 {% block content %}
 
+<div class="container mt-3">
+    <div class="row">
+        {% include 'partials/_sidebar.html' %}
+        <div class="col-9">
+            {% include 'libraries/partials/_card.html'%}
+            {% include 'libraries/partials/_card.html'%}
+            {% include 'libraries/partials/_card.html'%}
+            {% include 'libraries/partials/_card.html'%}
+            {% include 'libraries/partials/_card.html'%}
+            {% include 'libraries/partials/_card.html'%}
+            {% include 'libraries/partials/_card.html'%}
+            {% include 'libraries/partials/_card.html'%}
+            {% include 'libraries/partials/_card.html'%} 
+        </div>
+            
+
+        </div>
+    </div>
+
+</div>
+
+
     <h1>YIL : {{year}} </h1>
     <h1>AY : {{month}} </h1>
     <h1> {{article_list}} </h1>
+
+
     
 {% endblock %}
     

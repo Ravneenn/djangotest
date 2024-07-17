@@ -6,7 +6,18 @@
 
     {% block content %}
 
-    <h1> {{article}} </h1>
+    <div class="container mt-3">
+        <div class="row">
+            {% include 'partials/_sidebar.html' %}
+            <div class="col-9">
+                <h1>Makale No: {{article_no}} </h1>
+            </div>
+                
+
+            </div>
+        </div>
+
+    </div>
 
     {% endblock %}
     

@@ -1,20 +1,19 @@
 
-    
+
 
 {% extends "base.html" %}
 
-
 {%block title%} 
-    Yıllara Göre
+    Yazarlar
 {%endblock%}
 
-{% block content %}
 
+{% block content %}
 <div class="container mt-3">
     <div class="row">
         {% include 'partials/_sidebar.html' %}
         <div class="col-9">
-            
+            ARTICLES
             {% include 'libraries/partials/_card.html'%}
             {% include 'libraries/partials/_card.html'%}
             {% include 'libraries/partials/_card.html'%}
@@ -32,7 +31,6 @@
 
 </div>
 
-    <h1>YIL : {{year}} </h1>
-    <h1> {{article_list}} </h1>
+
     
 {% endblock %}

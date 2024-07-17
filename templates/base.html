@@ -6,16 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> {%block title%} {%endblock%} | Makale Arşivi</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static '/style/bootstrap_min.css' %}">
+    <link rel="stylesheet" href="{% static '/style/style.css' %}">
     {% block css_files%} {%endblock%}
 </head>
 <body>
-    <header style="background-color: black; padding:auto"> 
-        <a href="index" style="color: white;"> <Center> <H1> MAKALE ARŞİVİ</H1></Center> </a>
+    <header>
+        {% include 'partials/_navbar.html' %} 
     </header>
+
+    
+
     
     {% block content %}
 
     {% endblock %}
+
+    <script src="{% static 'js/bootstrap.min.js'%}"> </scirpt>
+    <script src="{% static 'js/base.js'%}"> </scirpt>
+        {% block js_files %} {% endblock %}
 </body>
 </html>

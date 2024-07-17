@@ -12,6 +12,9 @@ def index(request):
 def reporters(request):
     return render(request, 'libraries/reporters.html')
 
+def articles(request):
+    return render(request, 'libraries/articles.html')
+
 def year_archive(request, year):
     a_list = Article.objects.filter(pub_date__year=year)
     context = {"year": year, "article_list": a_list}
@@ -24,5 +27,5 @@ def month_archive(request, year , month):
 
 def article_detail(request, pk):
 
-    context = {"article": Article.objects.filter(pk = pk),}
+    context = {"article": Article.objects.filter(pk = pk), "article_no": pk}
     return render(request, 'libraries/articledetail.html', context)
