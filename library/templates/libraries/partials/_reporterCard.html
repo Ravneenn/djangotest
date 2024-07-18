@@ -1,10 +1,21 @@
-<a href= {% url 'reporter_detail' reporter.slug %} class="card m-1" style="width: 18rem;"> 
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/John_Doe%2C_born_John_Nommensen_Duchac.jpg/1200px-John_Doe%2C_born_John_Nommensen_Duchac.jpg" class="card-img mt-1 p-1 " alt="...">
-    <div class="card-body">
-      <p class="card-text"> {{reporter.full_name}} </p>
-    </div>
+<a href= {% url 'reporter_detail' reporter.slug %} class="" style="width: 18rem;" > 
   
-
-
+    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+    <img src={{ reporter.avatar.url }} class="img-fluid rounded-start" alt="..." style="clip-path: circle(60px at center);">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> {{reporter.full_name}} </h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
 </a>
+
+
+
+

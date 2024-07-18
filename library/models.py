@@ -3,10 +3,12 @@ from django.utils.text import slugify
 
 class Reporter(models.Model):
     full_name = models.CharField(max_length= 80)
+    avatar = models.ImageField(upload_to="reporter")
     slug = models.SlugField(blank=True, unique=True, db_index=True, editable = False)
 
     def __str__(self):
         return self.full_name
+    
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.full_name)
