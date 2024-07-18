@@ -99,16 +99,16 @@ def month_archive(request, year , month):
     context = {"year": year, "month": month, "article_list": a_list, "years":getyears}
     return render(request, 'libraries/monthlist.html',context)
 
-def article_detail(request, pk):
+def article_detail(request, slug):
 
-    article = Article.objects.get(id=pk)
+    article = Article.objects.get(slug=slug)
 
     context = {"article": article, "years":getyears }
     return render(request, 'libraries/articledetail.html', context)
 
 
-def reporter_detail(request, pk):
-    reporter = Reporter.objects.get(id=pk)
+def reporter_detail(request, slug):
+    reporter = Reporter.objects.get(slug = slug)
     
     context = {"reporter" : reporter, "articles": Article.objects.all(), "years":getyears}
     return render(request, "libraries/reporterdetail.html", context)

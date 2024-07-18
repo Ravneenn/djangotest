@@ -11,6 +11,6 @@ urlpatterns = [
     path("articles/", views.articles, name="articles" ),
     path("articles/<int:year>/", views.year_archive, name="archive_year"),
     path("articles/<int:year>/<int:month>/", views.month_archive, name="archive_month"),
-    path("article/<int:pk>/", views.article_detail, name="article_detail"),
-    path("reporter/<int:pk>/", views.reporter_detail, name="reporter_detail"),
+    path("article/<str:slug>/", views.article_detail, name="article_detail"),
+    path("reporter/<str:slug>/", views.reporter_detail, name="reporter_detail"),
 ]
