@@ -15,15 +15,10 @@
         {% include 'partials/_sidebar.html' %}
         <div class="col-9">
             
+            {% for article in article_list%}
             {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%}
-            {% include 'libraries/partials/_card.html'%} 
+            {% endfor %}
+
         </div>
             
 
@@ -32,7 +27,6 @@
 
 </div>
 
-    <h1>YIL : {{year}} </h1>
-    <h1> {{article_list}} </h1>
+   
     
 {% endblock %}

@@ -63,39 +63,52 @@ data = {
 
 }
 
+
+
+
+
+def getyears():
+    years = []
+    for article in Article.objects.all():
+        if article.pub_date.year not in years:
+            years.append(article.pub_date.year)
+    return years    
+    
+    
+
 def index(request):
-    context = {"reporters": Reporter.objects.all(), "articles": Article.objects.all()}
+    context = {"reporters": Reporter.objects.all(), "articles": Article.objects.all(), "years":getyears}
     return render(request, 'libraries/index.html', context)
     
 
 def reporters(request):
-    context = {"reporters": Reporter.objects.all() }
+    context = {"reporters": Reporter.objects.all(), "years":getyears }
     return render(request, 'libraries/reporters.html', context)
 
 def articles(request):
-    context = {"articles": Article.objects.all() }
+    context = {"articles": Article.objects.all(), "years":getyears }
     return render(request, 'libraries/articles.html', context)
 
 def year_archive(request, year):
     a_list = Article.objects.filter(pub_date__year=year)
-    context = {"year": year, "article_list": a_list}
+    context = {"year": year, "article_list": a_list, "years":getyears}
     return render(request, 'libraries/yearlist.html', context)
 
 def month_archive(request, year , month):
     a_list = Article.objects.filter(pub_date__month=month)
-    context = {"year": year, "month": month, "article_list": a_list}
+    context = {"year": year, "month": month, "article_list": a_list, "years":getyears}
     return render(request, 'libraries/monthlist.html',context)
 
 def article_detail(request, pk):
 
     article = Article.objects.get(id=pk)
 
-    context = {"article": article }
+    context = {"article": article, "years":getyears }
     return render(request, 'libraries/articledetail.html', context)
 
 
 def reporter_detail(request, pk):
     reporter = Reporter.objects.get(id=pk)
     
-    context = {"reporter" : reporter, "articles": Article.objects.all()}
+    context = {"reporter" : reporter, "articles": Article.objects.all(), "years":getyears}
     return render(request, "libraries/reporterdetail.html", context)

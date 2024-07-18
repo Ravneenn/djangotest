@@ -1,7 +1,10 @@
 <div class="col-3">
-    <ul class="list-group">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
+  <ul class="list-group">
+
+      {%for year in years%}
+       <a href = {% url 'archive_year' year %} style="text-decoration:none;" >
+        <li class="list-group-item"> {{year}}  </li>
+      </a>
+      {%endfor%}
+    </ul>
 </div>
