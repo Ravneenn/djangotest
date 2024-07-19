@@ -1,0 +1,38 @@
+
+    
+   
+{% extends "app/base.html" %}
+
+{%block css_files%}
+
+
+{%endblock%}
+
+{%block title%} 
+    Register
+{%endblock%}
+
+
+{% block content %}
+    <div class="login-container text-center">
+        <h2>Register</h2>
+
+        {% if form.errors %}
+            <p> Gönderilen form hatalı </p>
+        {% endif %}
+
+
+        <form action="{% url 'register_user'%}" method="post">
+            {% csrf_token %}
+            
+            {{form}}
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+{% endblock  %}
+
+
+
+
