@@ -16,7 +16,7 @@
                 <div class="shadow-lg p-3 mb-1 bg-body-tertiary rounded"> <h3 class="text-xxl-start  text-primary"> {{article.headline}} </h3> </div>
                 <div class="shadow-lg p-3 mb-1 bg-body-tertiary rounded"> {{article.content}} </div>
                 <div class=" p-3", style = "text-decoration: none;;"> Yazar: <a href = {% url 'reporter_detail' article.reporter.id %}> {{article.reporter}} </a> </div>
-                
+                <div class=" p-3", style = "text-decoration: none;;"> Yazar: <a href = {% url 'reporter_detail' article.reporter.id %}> {{article.langs.first}} </a> </div>
             
         </div>
 

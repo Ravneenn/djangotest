@@ -1,10 +1,16 @@
 <div class="col-3">
   <ul class="list-group">
 
-      {%for year in years%}
-       <a href = {% url 'archive_year' year %} style="text-decoration:none;" >
-        <li class="list-group-item"> {{year}}  </li>
-      </a>
+      {%for yeart in years%}
+        {% if year == yeart %}
+        <a href = {% url 'archive_year' yeart %} style="text-decoration:none;" >
+          <li class="list-group-item list-group-item-action active" > {{yeart}}  </li>
+        </a>
+        {% else %}
+        <a href = {% url 'archive_year' yeart %} style="text-decoration:none;" >
+          <li class="list-group-item"> {{yeart}}  </li>
+        </a>
+        {% endif %}
       {%endfor%}
     </ul>
 </div>
