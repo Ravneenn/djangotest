@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
+    'knox',
+    'files',
+    'members',
     'library',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,8 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'files',
-    'members'
+    
 ]
 
 MIDDLEWARE = [
@@ -53,6 +56,10 @@ MIDDLEWARE = [
 ]
 
 AUTH_USER_MODEL = 'members.CustomUser'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    }
 
 ROOT_URLCONF = 'files.urls'
 

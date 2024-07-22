@@ -1,6 +1,23 @@
 <div class="col-3">
   <ul class="list-group">
 
+    
+
+
+    <a style="text-decoration:none;" >
+      <li class="{% if request.resolver_match.url_name == "profile"%} list-group-item-action active {% endif %}     list-group-item"> Profil  </li>
+    </a>
+
+    <a href = {% url 'works'%} style="text-decoration:none;" >
+      <li class=" {% if request.resolver_match.url_name == "works"%} list-group-item-action active {% endif %} list-group-item"> Works  </li>
+    </a>
+
+    <a  style="text-decoration:none;" >
+      <li class=" {% if request.resolver_match.url_name == "staff"%} list-group-item-action active {% endif %}  list-group-item"> Personeller  </li>
+    </a>
+
+
+    <!--
       {%for yeart in years%}
         {% if year == yeart %}
         <a href = {% url 'archive_year' yeart %} style="text-decoration:none;" >
@@ -12,5 +29,6 @@
         </a>
         {% endif %}
       {%endfor%}
+      -->
     </ul>
 </div>

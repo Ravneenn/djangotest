@@ -9,25 +9,25 @@
 {%endblock%}
 
 {%block title%} 
-    Register
+    Create Work
 {%endblock%}
 
 
 {% block content %}
     <div class="login-container text-center">
-        <h2>Register</h2>
+        <h2>Create Work</h2>
 
         {% if form.errors %}
             <p> Gönderilen form hatalı </p>
         {% endif %}
 
 
-        <form action="{% url 'register_user'%}" method="post">
+        <form action="{% url 'create_work'%}", enctype="multipart/form-data" method="post">
             {% csrf_token %}
             
-            {{form}}
+            {{ form.as_p }}
             
-            <button type="submit">Register</button>
+            <button type="submit">Create</button>
         </form>
     </div>
 

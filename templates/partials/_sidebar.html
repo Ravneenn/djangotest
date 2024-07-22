@@ -1,6 +1,12 @@
 <div class="col-3">
   <ul class="list-group">
 
+    
+
+    
+
+
+      
       {%for yeart in years%}
         {% if year == yeart %}
         <a href = {% url 'archive_year' yeart %} style="text-decoration:none;" >
@@ -12,5 +18,12 @@
         </a>
         {% endif %}
       {%endfor%}
+
+     
+
+
+
+
+
     </ul>
 </div>

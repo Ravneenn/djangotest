@@ -21,9 +21,6 @@ class Language(models.Model):
     def __str__(self):
         return self.lang_sc
 
-
-
-
 class Article(models.Model):
     pub_date = models.DateField()
     headline = models.CharField(max_length=200)

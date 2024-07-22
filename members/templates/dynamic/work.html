@@ -1,0 +1,36 @@
+
+    
+   
+{% extends "app/base.html" %}
+
+{%block css_files%}
+
+{%endblock%}
+
+{%block title%} 
+    {{work.name}} || Works || ABRATECH
+{%endblock%}
+
+
+{% block content %}
+
+
+
+
+<div class="container mt-3">
+    <div class="row">
+
+        {% include 'app/partials/_sidebar.html' %}
+        <div class="col-9">
+
+                {% include 'partials/_workCard.html'%}
+            
+        </div>
+            
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

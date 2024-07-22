@@ -1,16 +1,27 @@
 <nav class = "navbar navbar-dark bg-primary navbar-expand-lg">
     <div class= "container">
-        <a class= "navbar-brand" href= " {% url 'home'%}">Makale Arşivi</a>
+        <a class= "navbar-brand" href= " {% url 'home'%}">ABRAWORKS</a>
         
         <ul class="navbar-nav align-content-between">
             {% if user.is_authenticated %}
+
+            {% if user.is_superuser %}
+            
+                <li class= "nav-item">
+                    <a class = "nav-link" href= " {% url 'create_work'%}">Create Work</a>
+                </li>
+
+            {% endif %}
+
+
             <li class= "nav-item">
                 <a class = "nav-link" href= " {% url 'logout'%}">Logout</a>
             </li>
             
+            
             {% else %}
             <li class= "nav-item">
-                <a class = "nav-link" href= " {% url 'login'%}">Login</a>
+                <a class = "nav-link" href= " {% url 'login_user'%}">Login</a>
             </li>
             
             <li class= "nav-item">
