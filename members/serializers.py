@@ -2,6 +2,8 @@ from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 
+from members.models import Work
+
 User = get_user_model()
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -28,3 +30,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'email', 'username', 'first_name', 'last_name')
+
+class WorkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Work
+        fields = "__all__"

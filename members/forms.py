@@ -6,4 +6,10 @@ class WorkForm(forms.ModelForm):
         model = Work
         fields = ['name', 'description','relatedWork', 'deadline', 'appointed', 'img']
         
-    
+class WorkUpdateFormUser(forms.ModelForm):
+    class Meta:
+        model = Work
+        fields = ['status']
+
+        
+            

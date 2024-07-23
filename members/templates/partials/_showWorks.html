@@ -1,0 +1,21 @@
+{% if user.is_superuser %}
+                {% for work in works%}
+                    {% if user == work.appointer %}
+                        {% include 'partials/_workCard.html'%}
+                    {% elif user in work.appointed.all %}
+                    {% include 'partials/_workCard.html'%}
+                    
+
+                    {% endif %}
+                {% endfor %}
+
+            {% else %}
+
+                {% for work in works%}
+                    {% if user in work.appointed.all %}
+                        {% include 'partials/_workCard.html'%}
+                    {% endif %}
+                {% endfor %}
+
+            
+            {% endif %}

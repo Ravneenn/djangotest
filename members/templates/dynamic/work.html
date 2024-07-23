@@ -14,23 +14,30 @@
 
 {% block content %}
 
-
-
-
+{% if user.is_authenticated %}
 <div class="container mt-3">
     <div class="row">
 
+
         {% include 'app/partials/_sidebar.html' %}
+
+
         <div class="col-9">
 
-                {% include 'partials/_workCard.html'%}
+                {% include 'partials/_workCardInfo.html'%}
             
         </div>
-            
+
+    </div>
+    
+
+    </div>  
+        
 
         </div>
     </div>
 
 </div>
+{% endif %}
 
 {% endblock %}

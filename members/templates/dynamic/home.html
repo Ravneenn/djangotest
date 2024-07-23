@@ -15,12 +15,6 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-                
-<p>  Hoşgeldin {{user.first_name}} {{user.last_name}} </p>
-
-{% endif %}
-
-
 
 <div class="container mt-3">
     <div class="row">
@@ -31,9 +25,9 @@
        
 
             
-            {% for article in articles%}
-                {% include 'libraries/partials/_card.html'%}
-            {% endfor %}
+            
+                {% include 'partials/_showWorks.html'%}
+            
 
             
 
@@ -47,5 +41,13 @@
     </div>
 
 </div>
+                
+
+
+{% endif %}
+
+
+
+
 
 {% endblock %}

@@ -60,6 +60,7 @@ class CustomUser(AbstractUser):
 
 class WorkStatus(models.Model):
     name = models.CharField(max_length=50)
+    owner = models.ForeignKey(Role, blank=True, on_delete=models.CASCADE , null=True)
     slug = models.SlugField(blank=True, unique=True, db_index=True, editable = False)
 
     def __str__(self):

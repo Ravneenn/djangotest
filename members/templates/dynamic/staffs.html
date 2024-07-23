@@ -1,0 +1,40 @@
+
+    
+   
+{% extends "app/base.html" %}
+
+{%block css_files%}
+
+{%endblock%}
+
+{%block title%} 
+    Staffs || ABRATECH
+{%endblock%}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container mt-3">
+    <div class="row">
+
+        {% include 'app/partials/_sidebar.html' %}
+        <div class="col-9">
+            
+            {% for staff in staffs %}
+                {% include "partials/_staffCard.html" %}
+            {% endfor %}
+
+
+            
+        </div>
+            
+
+        </div>
+    </div>
+
+</div>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+<div class="card w-100 mb-3">
+  <a href = {% url 'work' work.slug %} style="text-decoration:none; color:black;">
+    <div class="card-body">
+      <div class="row row-cols-2"> 
+        <h5 class="card-title text-primary">
+          {{work.name}}
+       </h5> 
+       
+      </div>
+      <p class="card-text"> {{work.description}} </p>
+      <p class="text-primary", style="padding-left:max;"> {{work.deadline}} </p>
+      <p class="text-primary", style="padding-left:max;"> GÖREVİ VEREN: {{work.appointer}} </p>
+      <p class="text-primary", style="padding-left:max;"> GÖREVLİLER : 
+        {% for user in work.appointed.all %}
+          {{ user }}{% if not forloop.last %}, {% endif %}
+        {% endfor %} </p>
+        <p class="card-text btn"> {{work.status}} </p>
+        {% if work.status.owner == user.role %}
+             
+             <a class="btn" href = {% url 'update_work' work.slug %} >Yeni durum bildir</a>
+         
+         {% endif %}
+      
+      
+      
+
+    </div>
+  </a>
+  </div>

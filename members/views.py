@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.contrib.auth.models import Group
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib import messages
@@ -9,8 +10,10 @@ from knox.models import AuthToken
 from .serializers import RegisterSerializer, LoginSerializer, UserSerializer
 from django.contrib.auth import login, authenticate
 from members.models import *
-from .forms import WorkForm
+from .forms import WorkForm, WorkUpdateFormUser
 from django.contrib.auth.decorators import user_passes_test
+
+
 
 
 # Create your views here.
@@ -50,6 +53,7 @@ def logout_user(request):
     logout(request)
     return redirect('home')
 
+@superuser_required
 def register_user(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -73,18 +77,49 @@ def register_user(request):
 
 def works(request):
     context = {
-        "works": Work.objects.all()
+        "works": Work.objects.all(),
     }
     return render(request, 'dynamic/works.html', context)
 
 def work(request, workName):
     context = {
-        "work": Work.objects.get(slug = workName)
+        "work": Work.objects.get(slug = workName),
+        "status": WorkStatus.objects.all()
     }
     return render(request, 'dynamic/work.html', context)
 
-@superuser_required
+def update_work(request, workName):
+    work = get_object_or_404(Work, slug=workName)
+    if request.method == 'POST':
+        form = WorkUpdateFormUser(request.POST, instance=work)
+        if form.is_valid():
+            form.save()
+            return redirect('work', workName)  # Güncellemeden sonra yönlendirilecek URL
+    else:
+        form = WorkUpdateFormUser(instance=work)
+    
+    return render(request, '_static/updateWork.html', {'form': form})
 
+def staff(request, staff):
+    context = {
+        "userData": CustomUser.objects.get(slug = staff),
+        "works": Work.objects.all()
+    }
+    return render(request, 'dynamic/staff.html', context)
+
+def staffs(request):
+    context = {
+        "staffs": CustomUser.objects.all()
+    }
+    return render(request, 'dynamic/staffs.html', context)
+
+def profile(request):
+    context = {
+        "works": Work.objects.all(),
+    }
+    return render(request, 'dynamic/profile.html', context)
+
+@superuser_required
 def createWork(request, ):
     if request.method == 'POST':
         form = WorkForm(request.POST, request.FILES)

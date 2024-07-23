@@ -1,0 +1,27 @@
+{% if user.is_superuser %}
+
+    {% for work in works%}
+        {% if userData in work.appointed.all %}
+            {% include 'partials/_workCard.html'%}
+        {% endif %}
+    {% endfor %}
+
+{% else %}
+
+    {% if userData.is_superuser %}
+        <p>Bu personelin görevlerini görme yetkin yok</p>
+    {% else %}
+        {% for work in works%}
+            {% if userData in work.appointed.all and user in work.appointed.all %}
+                {% include 'partials/_workCard.html'%}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+
+
+{% endif %}
+
+
+
+

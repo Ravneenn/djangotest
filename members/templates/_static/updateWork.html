@@ -1,0 +1,38 @@
+
+    
+   
+{% extends "app/base.html" %}
+
+{%block css_files%}
+
+
+{%endblock%}
+
+{%block title%} 
+    Create Work
+{%endblock%}
+
+
+{% block content %}
+    <div class="login-container text-center">
+        <h2>Create Work</h2>
+
+        {% if form.errors %}
+            <p> Gönderilen form hatalı </p>
+        {% endif %}
+
+
+        <form  enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            
+            <button type="submit">Create</button>
+        </form>
+    </div>
+
+{% endblock  %}
+
+
+
+
